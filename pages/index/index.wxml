@@ -15,4 +15,19 @@
       <image mode="widthFix" src="{{item.image_src}}"/>
     </navigator>
   </view>
+
+  <view class="index_floor">
+    <view class="floor_group" wx:for="{{floorList}}" wx:key="floor_title">
+      <!--标题-->
+      <view class="floor_title" >
+        <image mode="widthFix" src="{{item.floor_title.image_src}}" />
+      </view>
+      <!--内容-->
+      <view class="floor_list">
+        <navigator wx:for="{{item.product_list}}" wx:key="name" wx:for-item="item_sub" wx:for-index="index_sub" url="{{item_sub.navigator_url}}" open-type="{{item_sub.open_type}}">
+          <image mode="{{index_sub === 0?'widthFix':'scaleToFill'}}" src="{{item_sub.image_src}}" />
+        </navigator>
+      </view>
+    </view>
+  </view>
 </view>
